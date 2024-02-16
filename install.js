@@ -35,6 +35,9 @@ module.exports = {
     "params": {
       "venv": "env",
       "path": "app",
+      "env": {
+        "SYSTEM_VERSION_COMPAT": "0"
+      },
       "message": [
         //"{{(gpu === 'nvidia' ? self.cmds.nvidia : ((gpu === 'amd' && platform === 'linux') ? self.cmds.amd : self.cmds.default))}}",
         "{{(platform === 'darwin' ? self.cmds.darwin : (['nvidia', 'amd'].includes(gpu) ? self.cmds[platform][gpu] : self.cmds[platform].cpu))}}",

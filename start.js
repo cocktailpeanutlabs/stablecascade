@@ -5,6 +5,9 @@ module.exports = {
     "params": {
       "path": "app",
       "venv": "env",
+      "env": {
+        "SYSTEM_VERSION_COMPAT": "0"
+      },
       "message": "python app.py",
       "on": [{ "event": "/http:\/\/[0-9.:]+/", "done": true }]
     }
