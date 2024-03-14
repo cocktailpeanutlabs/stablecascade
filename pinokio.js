@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  version: "1.1",
+  version: "1.3",
   title: "Stable Cascade",
   description: "Stable Cascade from StabilityAI",
   icon: "icon.png",
