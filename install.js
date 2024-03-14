@@ -40,11 +40,11 @@ module.exports = {
         "pip install -r requirements.txt",
       ]
     }
-  }, {
-    "method": "fs.share",
-    "params": {
-      "venv": "app/env"
-    }
+//  }, {
+//    "method": "fs.share",
+//    "params": {
+//      "venv": "app/env"
+//    }
   }, {
     "method": "notify",
     "params": {
