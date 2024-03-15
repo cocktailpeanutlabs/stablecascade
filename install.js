@@ -10,7 +10,7 @@ module.exports = {
       "amd": "pip install torch-directml",
       "cpu": "pip install torch torchvision torchaudio"
     },
-    "darwin": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu",
+    "darwin": "pip3 install torch torchvision torchaudio",
     "linux": {
       "nvidia": "pip install torch torchvision torchaudio xformers --index-url https://download.pytorch.org/whl/cu121",
       "amd": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.7",
