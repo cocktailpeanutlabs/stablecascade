@@ -6,7 +6,8 @@ module.exports = {
       "path": "app",
       "venv": "env",
       "env": {
-        "SYSTEM_VERSION_COMPAT": "0"
+        "SYSTEM_VERSION_COMPAT": "0",
+        "ENABLE_CPU_OFFLOAD": "1"
       },
       "message": "python app.py",
       "on": [{ "event": "/http:\/\/[0-9.:]+/", "done": true }]
