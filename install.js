@@ -20,6 +20,9 @@ module.exports = {
   "run": [{
     "method": "shell.run",
     "params": {
+      "env": {
+        "GIT_CLONE_PROTECTION_ACTIVE": "false"
+      },
       "message": [
         "git lfs install",
         "git clone https://huggingface.co/spaces/cocktailpeanut/stable-cascade app"
@@ -35,6 +38,8 @@ module.exports = {
       },
       "message": [
         "{{gpu === 'nvidia' ? 'conda install -y nvidia/label/cuda-12.1.0::cuda' : null}}",
+        "{{gpu === 'nvidia' && platform === 'win32' ? 'conda install -y cudnn libzlib-wapi -c conda-forge' : null}}",
+        "{{gpu === 'nvidia' && platform === 'linux' ? 'conda install -y cudnn -c conda-forge' : null}}",
         "{{(platform === 'darwin' ? self.cmds.darwin : (['nvidia', 'amd'].includes(gpu) ? self.cmds[platform][gpu] : self.cmds[platform].cpu))}}",
         "pip install gradio",
         "pip install -r requirements.txt",
