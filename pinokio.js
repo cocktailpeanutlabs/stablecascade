@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  version: "1.3",
+  version: "3.0",
   title: "Stable Cascade",
   description: "Stable Cascade from StabilityAI",
   icon: "icon.png",
@@ -55,6 +55,7 @@ module.exports = {
           icon: "fa-solid fa-broom",
           text: "Factory Reset",
           href: "reset.js",
+          confirm: "Are you sure you wish to reset the App?"
         }]
       }
     } else {
