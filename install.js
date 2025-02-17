@@ -6,15 +6,15 @@ module.exports = {
 //  },
   "cmds": {
     "win32": {
-      "nvidia": "pip install torch torchvision torchaudio xformers --index-url https://download.pytorch.org/whl/cu121",
-      "amd": "pip install torch-directml",
-      "cpu": "pip install torch torchvision torchaudio"
+      "nvidia": "uv pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 xformers --index-url https://download.pytorch.org/whl/cu124",
+      "amd": "uv pip install torch-directml torchvision torchaudio numpy==1.26.4",
+      "cpu": "uv pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cpu"
     },
-    "darwin": "pip3 install torch torchvision torchaudio",
+    "darwin": "uv pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cpu",
     "linux": {
-      "nvidia": "pip install torch torchvision torchaudio xformers --index-url https://download.pytorch.org/whl/cu121",
-      "amd": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.7",
-      "cpu": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu"
+      "nvidia": "uv pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 xformers --index-url https://download.pytorch.org/whl/cu124",
+      "amd": "uv pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/rocm6.2",
+      "cpu": "uv pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cpu"
     }
   },
   "run": [{
@@ -41,8 +41,8 @@ module.exports = {
         "{{gpu === 'nvidia' && platform === 'win32' ? 'conda install -y cudnn libzlib-wapi -c conda-forge' : null}}",
         "{{gpu === 'nvidia' && platform === 'linux' ? 'conda install -y cudnn -c conda-forge' : null}}",
         "{{(platform === 'darwin' ? self.cmds.darwin : (['nvidia', 'amd'].includes(gpu) ? self.cmds[platform][gpu] : self.cmds[platform].cpu))}}",
-        "pip install gradio",
-        "pip install -r requirements.txt",
+        "uv pip install gradio numpy==1.26.4",
+        "uv pip install -r requirements.txt",
       ]
     }
 //  }, {
