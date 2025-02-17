@@ -41,7 +41,7 @@ module.exports = {
         "{{gpu === 'nvidia' && platform === 'win32' ? 'conda install -y cudnn libzlib-wapi -c conda-forge' : null}}",
         "{{gpu === 'nvidia' && platform === 'linux' ? 'conda install -y cudnn -c conda-forge' : null}}",
         "{{(platform === 'darwin' ? self.cmds.darwin : (['nvidia', 'amd'].includes(gpu) ? self.cmds[platform][gpu] : self.cmds[platform].cpu))}}",
-        "uv pip install gradio huggingface_hub==0.25.2 numpy==1.26.4",
+        "uv pip install gradio numpy==1.26.4",
         "uv pip install -r requirements.txt",
       ]
     }
