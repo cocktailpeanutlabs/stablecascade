@@ -38,9 +38,9 @@ module.exports = {
         "SYSTEM_VERSION_COMPAT": "0"
       },
       "message": [
-        "pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128",
-        "pip install gradio",
-        "pip install -r requirements.txt",
+        "uv pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128",
+        "uv pip install gradio numpy==1.26.4",
+        "uv pip install -r requirements.txt",
       ]
     },
     "next": "end"
