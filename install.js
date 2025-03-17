@@ -29,6 +29,22 @@ module.exports = {
       ]
     }
   }, {
+    "when": "{{gpu === 'nvidia' && kernel.gpu_model && / 50.+/.test(kernel.gpu_model) }}",
+    "method": "shell.run",
+    "params": {
+      "venv": "env",
+      "path": "app",
+      "env": {
+        "SYSTEM_VERSION_COMPAT": "0"
+      },
+      "message": [
+        "pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128",
+        "pip install gradio",
+        "pip install -r requirements.txt",
+      ]
+    },
+    "next": "end"
+  }, {
     "method": "shell.run",
     "params": {
       "venv": "env",
@@ -51,6 +67,7 @@ module.exports = {
 //      "venv": "app/env"
 //    }
   }, {
+    "id": "end",
     "method": "notify",
     "params": {
       "html": "Click the 'start' tab to get started!"
